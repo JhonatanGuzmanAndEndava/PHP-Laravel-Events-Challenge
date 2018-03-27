@@ -43,7 +43,7 @@
 
             <th>Name</th>
 
-            <th>Details</th>
+            <th>Address</th>
 
             <th width="280px">Action</th>
 
@@ -53,11 +53,11 @@
 
             <tr>
 
-                <td>{{ ++$i }}</td>
+                <td>{{ $event->id }}</td>
 
                 <td>{{ $event->name }}</td>
 
-                <td>{{ $event->category }}</td>
+                <td>{{ $event->address }}</td>
 
                 <td>
 
@@ -87,9 +87,6 @@
         @endforeach
 
     </table>
-
-
-    {!! $events->links() !!}
 
 
 @endsection
