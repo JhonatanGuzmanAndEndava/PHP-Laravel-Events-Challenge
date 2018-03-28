@@ -44,13 +44,17 @@ Just use XAMPP. Be sure Apache is pointing to public folder from project
 
 ### Crud
 
-[Base](https://itsolutionstuff.com/post/laravel-56-crud-application-for-starterexample.html)
-[CRUD 1](https://appdividend.com/2018/02/23/laravel-5-6-crud-tutorial/)
-[CRUD 2](https://scotch.io/tutorials/simple-laravel-crud-with-resource-controllers)
-[CRUD 3](https://medium.com/@cesdash/crud-en-laravel-5-4-fadc5ce65918)
-[CRUD 4](https://medium.com/@sebazamorano/como-crear-un-crud-en-laravel-5-4-24dc0c8f7ba3)
+Base - https://itsolutionstuff.com/post/laravel-56-crud-application-for-starterexample.html <br />
+CRUD 1 - https://appdividend.com/2018/02/23/laravel-5-6-crud-tutorial <br />
+CRUD 2 - https://scotch.io/tutorials/simple-laravel-crud-with-resource-controllers <br />
+CRUD 3 - https://medium.com/@cesdash/crud-en-laravel-5-4-fadc5ce65918 <br />
+CRUD 4 - https://medium.com/@sebazamorano/como-crear-un-crud-en-laravel-5-4-24dc0c8f7ba3 <br />
 
 
 ### Relationships 
 
-[One to many](https://appdividend.com/2018/01/04/laravel-one-to-many-relationship-tutorial)
+One to many - https://appdividend.com/2018/01/04/laravel-one-to-many-relationship-tutorial <br />
+
+### Admin role
+
+Admin role - https://medium.com/justlaravel/how-to-use-middleware-for-content-restriction-based-on-user-role-in-laravel-2d0d8f8e94c6 <br />
