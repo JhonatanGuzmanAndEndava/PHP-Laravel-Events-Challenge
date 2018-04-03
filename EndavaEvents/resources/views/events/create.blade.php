@@ -9,13 +9,13 @@
 
             <div class="pull-left">
 
-                <h2>Add New Event</h2>
+                <h2>Crear nuevo evento</h2>
 
             </div>
 
             <div class="pull-right">
 
-                <a class="btn btn-primary" href="{{ route('events.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('events.index') }}"> Volver</a>
 
             </div>
 
@@ -56,9 +56,9 @@
 
                 <div class="form-group">
 
-                    <strong>Name:</strong>
+                    <strong>Nombre:</strong>
 
-                    <input type="text" name="name" class="form-control" placeholder="Name">
+                    <input type="text" name="name" class="form-control" placeholder="Nombre">
 
                 </div>
 
@@ -68,17 +68,73 @@
 
                 <div class="form-group">
 
-                    <strong>Address:</strong>
+                    <strong>Categoria:</strong>
 
-                    <input type="text" name="address" class="form-control" placeholder="Address">
+                    <input type="text" name="category" class="form-control" placeholder="Categoria">
 
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                <div class="form-group">
+
+                    <strong>Lugar:</strong>
+
+                    <input type="text" name="place" class="form-control" placeholder="Lugar">
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                <div class="form-group">
+
+                    <strong>Direccion:</strong>
+
+                    <input type="text" name="address" class="form-control" placeholder="Direccion">
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                <div class="form-group">
+
+                    <strong>Fecha de inicio:</strong>
+
+                    <input type="text" name="startdate" class="form-control" placeholder="Fecha de inicio">
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                <div class="form-group">
+
+                    <strong>Fecha de fin:</strong>
+
+                    <input type="text" name="enddate" class="form-control" placeholder="Fecha de fin">
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                <div class="checkbox">
+                    <label><input type="checkbox" value="true" name="isvirtual"> Es virtual</label>
                 </div>
 
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Crear Evento</button>
 
             </div>
 

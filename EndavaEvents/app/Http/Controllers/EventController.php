@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -14,7 +15,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        $events = Event::where('user_id','=',Auth::id())->get();
         return view('events.index', compact('events'));
     }
 
@@ -37,7 +38,32 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(Auth::check())
+        {
+            $event = new Event();
+            $event->name = $request->get('name');
+            $event->user_id = Auth::id();
+            $event->category = $request->get('category');
+            $event->place = $request->get('place');
+            $event->address = $request->get('address');
+
+            //$date=date_create($request->get('startdate'));
+            //$format = date_format($date,"Y-m-d");
+            //$event->start_date = strtotime($format);
+
+            //$date2=date_create($request->get('enddate'));
+            //$format2 = date_format($date2,"Y-m-d");
+            //$event->end_date = strtotime($format2);
+
+            $event->start_date = $request->get('startdate');
+            $event->end_date = $request->get('enddate');
+
+            $event->is_virtual = $request->get('isvirtual') == 'true' ? 1 : 0;
+
+            $event->save();
+            return redirect()->route('events.index')
+                ->with('success','Evento agregado exitosamente');
+        }
     }
 
     /**

@@ -20,8 +20,8 @@ class CreateEventsTable extends Migration
             $table->string('category');
             $table->string('place');
             $table->string('address');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->boolean('is_virtual');
             $table->timestamps();
         });
