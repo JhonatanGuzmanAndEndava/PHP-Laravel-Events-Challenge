@@ -47,16 +47,16 @@ class EventController extends Controller
             $event->place = $request->get('place');
             $event->address = $request->get('address');
 
-            //$date=date_create($request->get('startdate'));
-            //$format = date_format($date,"Y-m-d");
-            //$event->start_date = strtotime($format);
+            $date=date_create($request->get('startdate'));
+            $format = date_format($date,"Y-m-d");
+            $event->start_date = strtotime($format);
 
-            //$date2=date_create($request->get('enddate'));
-            //$format2 = date_format($date2,"Y-m-d");
-            //$event->end_date = strtotime($format2);
+            $date2=date_create($request->get('enddate'));
+            $format2 = date_format($date2,"Y-m-d");
+            $event->end_date = strtotime($format2);
 
-            $event->start_date = $request->get('startdate');
-            $event->end_date = $request->get('enddate');
+            //$event->start_date = $request->get('startdate');
+            //$event->end_date = $request->get('enddate');
 
             $event->is_virtual = $request->get('isvirtual') == 'true' ? 1 : 0;
 

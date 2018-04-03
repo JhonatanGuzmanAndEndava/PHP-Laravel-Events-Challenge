@@ -106,7 +106,9 @@
 
                     <strong>Fecha de inicio:</strong>
 
-                    <input type="text" name="startdate" class="form-control" placeholder="Fecha de inicio">
+                    <!-- <input type="text" name="startdate" class="form-control" placeholder="Fecha de inicio"> -->
+
+                    <input class="date form-control" type="text" id="datepicker1" name="startdate">
 
                 </div>
 
@@ -118,7 +120,9 @@
 
                     <strong>Fecha de fin:</strong>
 
-                    <input type="text" name="enddate" class="form-control" placeholder="Fecha de fin">
+                    <!-- <input type="text" name="enddate" class="form-control" placeholder="Fecha de fin"> -->
+
+                    <input class="date form-control" type="text" id="datepicker2" name="enddate">
 
                 </div>
 
