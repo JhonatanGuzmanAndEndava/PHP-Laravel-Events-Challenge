@@ -19,4 +19,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//CRUD
+
 Route::resource('events','EventController')->middleware('auth');
+
+//Profile
+
+//Route::resource('profile','ProfileController')->middleware('auth');
+
+Route::get('/profile', 'ProfileController@viewProfile')->middleware('auth')->name('profile.index');;
+
+Route::get('/profile/{profile}/edit', 'ProfileController@editProfile')->middleware('auth')->name('profile.edit');
+
+Route::put('/profile/{profile}', 'ProfileController@updateProfile')->middleware('auth')->name('profile.update');

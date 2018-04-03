@@ -9,13 +9,13 @@
 
             <div class="pull-left">
 
-                <h2>Laravel 5.6 CRUD Example from scratch</h2>
+                <h2>Tus eventos</h2>
 
             </div>
 
             <div class="pull-right">
 
-                <a class="btn btn-success" href="{{ route('events.create') }}"> Create New Event</a>
+                <a class="btn btn-success" href="{{ route('events.create') }}"> Crear evento nuevo</a>
 
             </div>
 
@@ -27,6 +27,16 @@
     @if ($message = Session::get('success'))
 
         <div class="alert alert-success">
+
+            <p>{{ $message }}</p>
+
+        </div>
+
+    @endif
+
+    @if ($message = Session::get('fail'))
+
+        <div class="alert alert-danger">
 
             <p>{{ $message }}</p>
 
@@ -64,16 +74,16 @@
                     <form action="{{ route('events.destroy',$event->id) }}" method="POST">
 
 
-                        <a class="btn btn-info" href="{{ route('events.show',$event->id) }}">Show</a>
+                        <a class="btn btn-info" href="{{ route('events.show',$event->id) }}">Ver</a>
 
-                        <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('events.edit',$event->id) }}">Editar</a>
 
 
                         @csrf
 
                         @method('DELETE')
 
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
 
                     </form>
 

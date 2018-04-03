@@ -1,4 +1,4 @@
-@extends('events.layout')
+@extends('profile.layout')
 
 
 @section('content')
@@ -9,7 +9,7 @@
 
             <div class="pull-left">
 
-                <h2>Edit Product</h2>
+                <h2>Editar prefil</h2>
 
             </div>
 

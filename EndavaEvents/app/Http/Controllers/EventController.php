@@ -74,8 +74,13 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
-        return view('events.show',compact('event'));
+        if($event->user_id == Auth::id() && Auth::check()) {
+            return view('events.show',compact('event'));
+        }
+        else {
+            return redirect()->route('events.index')
+                ->with('fail','No puedes ver ese evento');
+        }
     }
 
     /**
@@ -87,7 +92,13 @@ class EventController extends Controller
     public function edit(Event $event)
     {
         //
-        return view('events.edit',compact('event'));
+        if($event->user_id == Auth::id() && Auth::check()) {
+            return view('events.edit',compact('event'));
+        }
+        else {
+            return redirect()->route('events.index')
+                ->with('fail','No puedes editar ese evento');
+        }
     }
 
     /**
@@ -105,12 +116,17 @@ class EventController extends Controller
             'address' => 'required',
         ]);
 
-        //$request->get('atributo');
+        if($event->user_id == Auth::id() && Auth::check()) {
+            $event->update($request->all());
 
-        $event->update($request->all());
+            return redirect()->route('events.index')
+                ->with('success','Evento actualizado correctamente');
+        }
+        else {
+            return redirect()->route('events.index')
+                ->with('fail','No puedes actualizar ese evento');
+        }
 
-        return redirect()->route('events.index')
-            ->with('success','Event updated successfully');
     }
 
     /**
@@ -122,8 +138,14 @@ class EventController extends Controller
     public function destroy(Event $event)
     {
         //
-        $event->delete();
-        return redirect()->route('events.index')
-            ->with('success','Event deleted successfully');
+        if($event->user_id == Auth::id() && Auth::check()) {
+            $event->delete();
+            return redirect()->route('events.index')
+                ->with('success','Evento eliminado correctamente');
+        }
+        else {
+            return redirect()->route('events.index')
+                ->with('fail','No puedes eliminar ese evento');
+        }
     }
 }
