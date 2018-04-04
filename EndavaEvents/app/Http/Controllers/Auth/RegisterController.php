@@ -67,6 +67,7 @@ class RegisterController extends Controller
         $profile = new Profile();
         $profile->name = $data['name'];
         $profile->email = $data['email'];
+        $profile->photo = asset("storage/unknow.jpg");
         $profile->save();
 
         return User::create([

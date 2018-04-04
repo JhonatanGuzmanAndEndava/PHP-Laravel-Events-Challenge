@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
@@ -28,15 +30,18 @@ class ProfileController extends Controller
 
     public function updateProfile(Request $request, Profile $profile) {
 
-        $name = "";
+        $profile->update($request->all());
+
         if($request->hasfile('photo'))
         {
             $file = $request->file('photo');
-            $name=time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/', $name);
+
+            $savepath = "avatars/".Auth::id()."/".$file->getClientOriginalName();
+
+            Storage::disk('public')->put($savepath , File::get($file));
+            $profile->photo = asset("storage/".$savepath);
+            $profile->save();
         }
-        $profile->photo = $name;
-        $profile->update($request->all());
 
         return redirect()->route('profile.index')
             ->with('success','Perfil actualizado con éxito');

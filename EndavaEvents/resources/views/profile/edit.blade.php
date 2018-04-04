@@ -24,7 +24,7 @@
     </div>
 
 
-    <form action="{{ route('profile.update', $profile) }}" method="POST">
+    <form action="{{ route('profile.update', $profile) }}" method="POST" enctype="multipart/form-data">
 
         @csrf
 
@@ -134,7 +134,7 @@
 
                     <strong>Foto:</strong>
 
-                    <input type="file" name="photo">
+                    <input type="file" name="photo" accept="image/*">
 
                 </div>
 

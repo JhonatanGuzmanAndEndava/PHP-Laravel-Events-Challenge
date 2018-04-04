@@ -113,7 +113,7 @@
 
             <td>Foto</td>
 
-            <td>{{ $profile->photo }}</td>
+            <td><img src="{{ $profile->photo }}" alt="Profile picture" height="350px" width="500px"></td>
 
         </tr>
 
