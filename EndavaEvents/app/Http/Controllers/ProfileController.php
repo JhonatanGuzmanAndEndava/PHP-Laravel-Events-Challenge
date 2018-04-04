@@ -27,6 +27,15 @@ class ProfileController extends Controller
     }
 
     public function updateProfile(Request $request, Profile $profile) {
+
+        $name = "";
+        if($request->hasfile('photo'))
+        {
+            $file = $request->file('photo');
+            $name=time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/', $name);
+        }
+        $profile->photo = $name;
         $profile->update($request->all());
 
         return redirect()->route('profile.index')

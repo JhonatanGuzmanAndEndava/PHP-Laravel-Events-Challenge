@@ -134,7 +134,7 @@
 
                     <strong>Foto:</strong>
 
-                    <input type="text" name="photo" class="form-control" value="{{ $profile->photo }}">
+                    <input type="file" name="photo">
 
                 </div>
 
