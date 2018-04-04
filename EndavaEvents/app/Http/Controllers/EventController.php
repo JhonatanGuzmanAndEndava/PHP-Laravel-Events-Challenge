@@ -47,18 +47,10 @@ class EventController extends Controller
             $event->place = $request->get('place');
             $event->address = $request->get('address');
 
-            $date=date_create($request->get('startdate'));
-            $format = date_format($date,"Y-m-d");
-            $event->start_date = strtotime($format);
+            $event->start_date = $request->get('start_date');
+            $event->end_date = $request->get('end_date');
 
-            $date2=date_create($request->get('enddate'));
-            $format2 = date_format($date2,"Y-m-d");
-            $event->end_date = strtotime($format2);
-
-            //$event->start_date = $request->get('startdate');
-            //$event->end_date = $request->get('enddate');
-
-            $event->is_virtual = $request->get('isvirtual') == 'true' ? 1 : 0;
+            $event->is_virtual = $request->get('is_virtual') == 1 ? 1 : 0;
 
             $event->save();
             return redirect()->route('events.index')
@@ -117,6 +109,7 @@ class EventController extends Controller
         ]);
 
         if($event->user_id == Auth::id() && Auth::check()) {
+            $event->is_virtual = $request->get('is_virtual') == 1 ? 1:0;
             $event->update($request->all());
 
             return redirect()->route('events.index')

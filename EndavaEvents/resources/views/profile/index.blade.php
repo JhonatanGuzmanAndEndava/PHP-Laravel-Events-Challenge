@@ -33,6 +33,16 @@
 
     @endif
 
+    @if ($message = Session::get('fail'))
+
+        <div class="alert alert-danger">
+
+            <p>{{ $message }}</p>
+
+        </div>
+
+    @endif
+
     <table class="table table-bordered">
 
         <tr>
@@ -104,6 +114,8 @@
             <td>Foto</td>
 
             <td>{{ $profile->photo }}</td>
+
+        </tr>
 
     </table>
 

@@ -9,7 +9,7 @@
 
             <div class="pull-left">
 
-                <h2> Show Event</h2>
+                <h2> Información del evento {{$event->name}} </h2>
 
             </div>
 
@@ -24,32 +24,68 @@
     </div>
 
 
-    <div class="row">
+    <table class="table table-bordered">
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <tr>
 
-            <div class="form-group">
+            <td>Nombre</td>
 
-                <strong>Name:</strong>
+            <td>{{ $event->name }}</td>
 
-                {{ $event->name }}
+        </tr>
 
-            </div>
+        <tr>
 
-        </div>
+            <td>Categoría</td>
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+            <td>{{ $event->category }}</td>
 
-            <div class="form-group">
+        </tr>
 
-                <strong>Address:</strong>
+        <tr>
 
-                {{ $event->address }}
+            <td>Lugar</td>
 
-            </div>
+            <td>{{ $event->place }}</td>
 
-        </div>
+        </tr>
 
-    </div>
+        <tr>
+
+            <td>Dirección</td>
+
+            <td>{{ $event->address }}</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Fecha de inicio</td>
+
+            <td>{{ $event->start_date }}</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Fecha de fin</td>
+
+            <td>{{ $event->end_date }}</td>
+
+        </tr>
+
+        <tr>
+
+            <td>Es virtual</td>
+
+            @if( $event->is_virtual )
+                <td>Si</td>
+            @else
+                <td>No</td>
+            @endif
+
+        </tr>
+
+    </table>
 
 @endsection

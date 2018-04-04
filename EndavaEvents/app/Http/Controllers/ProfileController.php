@@ -16,7 +16,14 @@ class ProfileController extends Controller
 
     public function editProfile(Profile $profile)
     {
-        return view('profile.edit', compact('profile'));
+
+        if($profile->id == Auth::id() && Auth::check()) {
+            return view('profile.edit', compact('profile'));
+        }
+        else {
+            return redirect()->route('profile.index')
+                ->with('fail','No puedes acceder');
+        }
     }
 
     public function updateProfile(Request $request, Profile $profile) {

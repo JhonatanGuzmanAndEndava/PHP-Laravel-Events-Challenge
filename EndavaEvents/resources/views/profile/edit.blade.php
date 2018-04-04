@@ -50,7 +50,7 @@
 
                     <strong>Apellido:</strong>
 
-                    <input type="text" name="lastname" class="form-control" placeholder="{{ $profile->lastname }}">
+                    <input type="text" name="lastname" class="form-control" value="{{ $profile->lastname }}">
 
                 </div>
 
@@ -74,7 +74,7 @@
 
                     <strong>Telefono:</strong>
 
-                    <input type="text" name="phone" class="form-control" placeholder="{{ $profile->phone }}">
+                    <input type="text" name="phone" class="form-control" value="{{ $profile->phone }}">
 
                 </div>
 
@@ -86,7 +86,7 @@
 
                     <strong>Documento:</strong>
 
-                    <input type="text" name="cc" class="form-control" placeholder="{{ $profile->cc }}">
+                    <input type="text" name="cc" class="form-control" value="{{ $profile->cc }}">
 
                 </div>
 
@@ -98,7 +98,7 @@
 
                     <strong>Direccion:</strong>
 
-                    <input type="text" name="address" class="form-control" placeholder="{{ $profile->address }}">
+                    <input type="text" name="address" class="form-control" value="{{ $profile->address }}">
 
                 </div>
 
@@ -110,7 +110,7 @@
 
                     <strong>Ciudad:</strong>
 
-                    <input type="text" name="city" class="form-control" placeholder="{{ $profile->city }}">
+                    <input type="text" name="city" class="form-control" value="{{ $profile->city }}">
 
                 </div>
 
@@ -122,7 +122,7 @@
 
                     <strong>Fecha de nacimiento:</strong>
 
-                    <input type="text" name="birthday" class="form-control" placeholder="{{ $profile->birthday }}">
+                    <input class="date form-control" type="text" id="datepicker5" name="birthday" value="{{ $profile->birthday }}">
 
                 </div>
 
@@ -134,7 +134,7 @@
 
                     <strong>Foto:</strong>
 
-                    <input type="text" name="photo" class="form-control" placeholder="{{ $profile->photo }}">
+                    <input type="text" name="photo" class="form-control" value="{{ $profile->photo }}">
 
                 </div>
 

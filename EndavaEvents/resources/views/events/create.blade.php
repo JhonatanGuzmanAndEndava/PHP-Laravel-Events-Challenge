@@ -68,9 +68,15 @@
 
                 <div class="form-group">
 
-                    <strong>Categoria:</strong>
+                    <label for="sel1">Categoria:</label>
 
-                    <input type="text" name="category" class="form-control" placeholder="Categoria">
+                    <select class="form-control" id="sel1" type="text" name="category">
+
+                        <option>Conferencia</option>
+                        <option>Seminario</option>
+                        <option>Curso</option>
+
+                    </select>
 
                 </div>
 
@@ -108,7 +114,7 @@
 
                     <!-- <input type="text" name="startdate" class="form-control" placeholder="Fecha de inicio"> -->
 
-                    <input class="date form-control" type="text" id="datepicker1" name="startdate">
+                    <input class="date form-control" type="text" id="datepicker1" name="start_date">
 
                 </div>
 
@@ -122,7 +128,7 @@
 
                     <!-- <input type="text" name="enddate" class="form-control" placeholder="Fecha de fin"> -->
 
-                    <input class="date form-control" type="text" id="datepicker2" name="enddate">
+                    <input class="date form-control" type="text" id="datepicker2" name="end_date">
 
                 </div>
 
@@ -131,7 +137,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
 
                 <div class="checkbox">
-                    <label><input type="checkbox" value="true" name="isvirtual"> Es virtual</label>
+                    <label><input type="checkbox" value="1" name="is_virtual"> Es virtual</label>
                 </div>
 
             </div>
@@ -146,6 +152,5 @@
 
 
     </form>
-
 
 @endsection

@@ -22,7 +22,7 @@ class CreateProfilesTable extends Migration
             $table->string('cc')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
-            $table->string('birthday')->nullable();
+            $table->date('birthday')->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
         });

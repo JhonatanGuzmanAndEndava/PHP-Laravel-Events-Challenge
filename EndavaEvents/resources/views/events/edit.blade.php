@@ -1,4 +1,4 @@
-@extends('profile.layout')
+@extends('events.layout')
 
 
 @section('content')
@@ -45,12 +45,11 @@
     @endif
 
 
-    <form action="{{ route('events.update',$event->id) }}" method="POST">
+    <form action="{{ route('events.update', $event->id) }}" method="POST">
 
         @csrf
 
         @method('PUT')
-
 
         <div class="row">
 
@@ -58,9 +57,9 @@
 
                 <div class="form-group">
 
-                    <strong>Name:</strong>
+                    <strong>Nombre:</strong>
 
-                    <input type="text" name="name" value="{{ $event->name }}" class="form-control" placeholder="Name">
+                    <input type="text" name="name" class="form-control" value="{{ $event->name }}">
 
                 </div>
 
@@ -70,17 +69,110 @@
 
                 <div class="form-group">
 
-                    <strong>Address:</strong>
+                    <label for="sel1">Categoria:</label>
 
-                    <input type="text" name="address" value="{{ $event->address }}" class="form-control" placeholder="Address">
+                    <select class="form-control" id="sel1" type="text" name="category" value="{{ $event->category }}">
 
+                        @switch($event->category)
+                            @case("Conferencia")
+                            <option selected="selected">Conferencia</option>
+                            <option>Seminario</option>
+                            <option>Curso</option>
+                            @break
+
+                            @case("Seminario")
+                            <option>Conferencia</option>
+                            <option selected="selected">Seminario</option>
+                            <option>Curso</option>
+                            @break
+
+                            @case("Curso")
+                            <option>Conferencia</option>
+                            <option>Seminario</option>
+                            <option selected="selected">Curso</option>
+                            @break
+
+                            @default
+                            <option>Conferencia</option>
+                            <option>Seminario</option>
+                            <option>Curso</option>
+                            @break
+                        @endswitch
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                <div class="form-group">
+
+                    <strong>Lugar:</strong>
+
+                    <input type="text" name="place" class="form-control" value="{{ $event->place }}">
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                <div class="form-group">
+
+                    <strong>Direccion:</strong>
+
+                    <input type="text" name="address" class="form-control" value="{{ $event->address }}">
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                <div class="form-group">
+
+                    <strong>Fecha de inicio:</strong>
+
+                    <!-- <input type="text" name="startdate" class="form-control" placeholder="Fecha de inicio"> -->
+
+                    <input class="date form-control" type="text" id="datepicker1" name="start_date" value="{{$event->start_date}}" placeholder="{{$event->start_date}}">
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                <div class="form-group">
+
+                    <strong>Fecha de fin:</strong>
+
+                    <!-- <input type="text" name="enddate" class="form-control" placeholder="Fecha de fin"> -->
+
+                    <input class="date form-control" type="text" id="datepicker2" name="end_date" value="{{$event->end_date}}" placeholder="{{$event->end_date}}">
+
+                </div>
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+
+                <div class="checkbox">
+
+                    @if ($event->is_virtual == 1)
+                        <label><input type="checkbox" value="1" name="is_virtual" checked> Es virtual</label>
+                    @else
+                        <label><input type="checkbox" value="1" name="is_virtual"> Es virtual</label>
+                    @endif
                 </div>
 
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Actualizar Evento</button>
 
             </div>
 
@@ -88,6 +180,5 @@
 
 
     </form>
-
 
 @endsection
