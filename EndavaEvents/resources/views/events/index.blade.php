@@ -49,13 +49,17 @@
 
         <tr>
 
-            <th>No</th>
+            <th>Nombre</th>
 
-            <th>Name</th>
+            <th>Categoria</th>
 
-            <th>Address</th>
+            <th>Lugar</th>
 
-            <th width="280px">Action</th>
+            <th>Fecha de inicio</th>
+
+            <th>Fecha de creación</th>
+
+            <th width="280px">Acciones</th>
 
         </tr>
 
@@ -63,11 +67,15 @@
 
             <tr>
 
-                <td>{{ $event->id }}</td>
-
                 <td>{{ $event->name }}</td>
 
-                <td>{{ $event->address }}</td>
+                <td>{{ $event->category }}</td>
+
+                <td>{{ $event->place }}</td>
+
+                <td>{{ $event->start_date }}</td>
+
+                <td>{{ $event->created_at }}</td>
 
                 <td>
 
