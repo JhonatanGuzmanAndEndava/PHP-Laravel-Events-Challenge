@@ -58,3 +58,8 @@ One to many - https://appdividend.com/2018/01/04/laravel-one-to-many-relationshi
 ### Admin role
 
 Admin role - https://medium.com/justlaravel/how-to-use-middleware-for-content-restriction-based-on-user-role-in-laravel-2d0d8f8e94c6 <br />
+
+### Upload files
+
+Images - https://styde.net/sistema-de-archivos-y-almacenamiento-en-laravel-5/
+Laravel Doc - https://laravel.com/docs/5.6/filesystem
