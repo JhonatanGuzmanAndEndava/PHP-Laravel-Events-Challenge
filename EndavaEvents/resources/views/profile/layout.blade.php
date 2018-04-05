@@ -15,14 +15,40 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
+    <!-- Styles -->
+    <link href="{{ asset('css/welcomestyle.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
 
+@if (Route::has('login'))
+    <div class="top-right links">
+        @auth
+            <a href="{{ url('/home') }}">Home</a>
+            <a href="{{ route('events.index') }}">Events</a>
+            <a href="{{ route('profile.index') }}">Profile</a>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Logout
+            </a>
 
-<div class="container">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        @else
+            <a href="{{ route('login') }}">Login</a>
+            <a href="{{ route('register') }}">Register</a>
+        @endauth
+    </div>
+@endif
 
-    @yield('content')
+<div class="content">
+
+    <div class="container">
+
+        @yield('content')
+
+    </div>
 
 </div>
 
