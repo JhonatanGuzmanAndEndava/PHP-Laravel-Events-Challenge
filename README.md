@@ -2,6 +2,11 @@
 
 This is the fourth AM Endava Challenge with Laravel framework
 
+## Getting Start
+
+First App - https://auth0.com/blog/creating-your-first-laravel-app-and-adding-authentication/ <br />
+Laravel 5.6 Doc - https://laravel.com/docs/5.6
+
 ## Configuration
 
 Be sure you have .env file in project with correct settings, specially in DB and MAIL
@@ -61,5 +66,5 @@ Admin role - https://medium.com/justlaravel/how-to-use-middleware-for-content-re
 
 ### Upload files
 
-Images - https://styde.net/sistema-de-archivos-y-almacenamiento-en-laravel-5/
+Images - https://styde.net/sistema-de-archivos-y-almacenamiento-en-laravel-5/ <br />
 Laravel Doc - https://laravel.com/docs/5.6/filesystem
