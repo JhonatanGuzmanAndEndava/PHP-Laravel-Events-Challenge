@@ -28,11 +28,11 @@ class User extends Authenticatable
     ];
 
     public function events() {
-        return $this->hasMany('App\Event');
+        return $this->hasMany('App\Event', 'user_id');
     }
 
     public function profile() {
-        return $this->hasOne('App\Profile');
+        return $this->hasOne('App\Profile', 'user_id');
     }
 
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -64,12 +65,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $profile = new Profile();
-        $profile->name = $data['name'];
-        $profile->email = $data['email'];
-        $profile->photo = asset("storage/unknow.jpg");
-        $profile->save();
-
         //Tn order to create just a first admin
         if($data['email']=="admin@admin.com") {
             $type = "admin";
@@ -77,11 +72,19 @@ class RegisterController extends Controller
             $type = "user";
         }
 
-        return User::create([
+        $var = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'user_type' => $type,
         ]);
+
+        $profile = new Profile();
+        $profile->user_id = $var->id;
+        $profile->name = $data['name'];
+        $profile->email = $data['email'];
+        $profile->photo = asset("storage/unknow.jpg");
+        $profile->save();
+        return $var;
     }
 }
