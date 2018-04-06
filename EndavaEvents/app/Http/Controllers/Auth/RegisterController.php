@@ -70,10 +70,18 @@ class RegisterController extends Controller
         $profile->photo = asset("storage/unknow.jpg");
         $profile->save();
 
+        //Tn order to create just a first admin
+        if($data['email']=="admin@admin.com") {
+            $type = "admin";
+        }else {
+            $type = "user";
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'user_type' => $type,
         ]);
     }
 }
