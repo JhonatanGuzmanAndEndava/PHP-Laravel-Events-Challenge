@@ -9,7 +9,26 @@ Laravel 5.6 Doc - https://laravel.com/docs/5.6
 
 ## Configuration
 
-Be sure you have .env file in project with correct settings, specially in DB and MAIL
+1. You must have [Composer](https://getcomposer.org/)
+
+2. Then. Install Laravel with command
+
+```
+composer global require "laravel/installer"
+```
+
+3. Navigate until EndavaEvents. You have to install composer dependencies with:
+
+For this step by sure you have git in path variable
+
+```
+composer install
+composer update
+```
+
+It will be create a vendor folder for autoload
+
+4. Be sure you have .env file in project with correct settings, specially in DB and MAIL
 
 ```
 DB_CONNECTION=mysql
@@ -29,23 +48,51 @@ MAIL_FROM_ADDRESS=The email you want to appear
 MAIL_FROM_NAME=Message you want to appear
 ```
 
-This file is not in repository, so you have to set up before running application
+This file is not in repository, so you have to set up before running application. You can use .env.example for template
 
-## DataBase
+5. Generate the key with
 
-When you set up the database you have to run 
+```
+php artisan key:generate
+```
+
+6. When you set up the database you have to run.   
 
 ```
 php artisan migrate
 ```
 
+Be sure you have successful conection with the database.
+
+If you want to restart database. You have to run
+
+```
+php artisan migrate:refresh
+```
+
 This Project is using [Eloquent](https://laravel.com/docs/5.6/eloquent) 
+
+7. Create symbolic link for storage
+
+```
+php artisan storage:link
+```
+
+Sometimes it is necessary clear cache
+
+```
+php artisan config:cache
+```
 
 ## Running app
 
-Just use XAMPP. Be sure Apache is pointing to public folder from project
+Just use XAMPP. Be sure Apache is pointing to **public** folder from project
 
 ## Useful Links
+
+### Laravel Doc
+
+[Laravel](https://laravel.com/docs/5.6) 
 
 ### Crud
 
@@ -68,3 +115,12 @@ Admin role - https://medium.com/justlaravel/how-to-use-middleware-for-content-re
 
 Images - https://styde.net/sistema-de-archivos-y-almacenamiento-en-laravel-5/ <br />
 Laravel Doc - https://laravel.com/docs/5.6/filesystem
+
+### PDF Gen
+
+PDF Provider for Laravel Install - https://github.com/barryvdh/laravel-dompdf
+Using - https://styde.net/generar-pdf-en-laravel-5-1-con-dompdf/
+
+### Export to CSV 
+
+Use League in back - https://github.com/usmanhalalit/laracsv

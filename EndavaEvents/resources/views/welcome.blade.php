@@ -16,12 +16,20 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
+
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                         <a href="{{ route('events.index') }}">Events</a>
                         <a href="{{ route('profile.index') }}">Profile</a>
+
+                        @if(Auth::user()->user_type == "admin")
+                            <a href="{{ route('admins.users') }}">All users</a>
+                            <a href="{{ route('admins.events') }}">All events</a>
+                            <a href="{{ route('admins.report') }}">Reports</a>
+                        @endif
+
                         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Logout
                         </a>
@@ -29,6 +37,7 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
+
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>

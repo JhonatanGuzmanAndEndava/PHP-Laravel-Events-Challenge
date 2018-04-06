@@ -40,6 +40,8 @@ Route::get('/admins/events','AdminController@viewEvents')->middleware('admin')->
 Route::get('/admins/events/{event}','AdminController@showEvent')->middleware('admin')->name('admins.show');
 Route::get('/admins/report','AdminController@generateReport')->middleware('admin')->name('admins.report');
 
+Route::post('/admins/report/do','AdminController@doReport')->middleware('admin')->name('admins.doreport');
+
 Route::put('/admins/do/{user}','AdminController@doAdmin')->middleware('admin')->name('admins.doadmin');
 Route::put('/admins/remove/{user}','AdminController@removeAdmin')->middleware('admin')->name('admins.removeadmin');
 

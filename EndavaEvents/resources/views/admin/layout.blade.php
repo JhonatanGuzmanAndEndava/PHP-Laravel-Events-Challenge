@@ -28,6 +28,13 @@
             <a href="{{ url('/home') }}">Home</a>
             <a href="{{ route('events.index') }}">Events</a>
             <a href="{{ route('profile.index') }}">Profile</a>
+
+            @if(Auth::user()->user_type == "admin")
+                <a href="{{ route('admins.users') }}">All users</a>
+                <a href="{{ route('admins.events') }}">All events</a>
+                <a href="{{ route('admins.report') }}">Reports</a>
+            @endif
+
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 Logout
             </a>
@@ -35,6 +42,7 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
+
         @else
             <a href="{{ route('login') }}">Login</a>
             <a href="{{ route('register') }}">Register</a>
@@ -51,6 +59,20 @@
     </div>
 
 </div>
+
+<script type="text/javascript">
+    $('#datepicker1').datepicker({
+        autoclose: true,
+        format: 'yyyy-mm-dd'
+    });
+</script>
+
+<script type="text/javascript">
+    $('#datepicker2').datepicker({
+        autoclose: true,
+        format: 'yyyy-mm-dd'
+    });
+</script>
 
 </body>
 
