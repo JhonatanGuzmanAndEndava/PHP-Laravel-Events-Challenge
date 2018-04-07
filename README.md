@@ -84,6 +84,17 @@ Sometimes it is necessary clear cache
 php artisan config:cache
 ```
 
+### Seed database
+
+If you want to seed database you have to run
+
+```
+composer dump-autoload
+php artisan migrate:refresh --seed
+```
+
+You have to see the database in order to get emails and default password is "password"
+
 ## Running app
 
 Just use XAMPP. Be sure Apache is pointing to **public** folder from project
