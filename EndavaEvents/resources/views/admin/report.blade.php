@@ -62,6 +62,7 @@
 
                         <option value="name">Nombre</option>
                         <option value="created_at">Fecha de creación</option>
+                        <option value="start_date">Fecha de inicio</option>
                         <option value="category">Categoría</option>
                         <option value="place">Lugar</option>
                         <option value="is_virtual_pres">Presenciales</option>
