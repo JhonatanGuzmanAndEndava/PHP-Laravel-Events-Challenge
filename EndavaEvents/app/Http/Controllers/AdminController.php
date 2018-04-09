@@ -118,6 +118,13 @@ class AdminController extends Controller
     {
         User::find($id)->delete();
         Profile::find($id)->delete();
+
+        $events = Event::all()
+            ->where('user_id','=',$id);
+        foreach ($events as $event) {
+            $event->delete();
+        }
+
         return redirect()->route('admins.users')
             ->with('success','Usuario eliminado correctamente');
     }
